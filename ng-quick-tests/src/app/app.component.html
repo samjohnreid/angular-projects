@@ -1,0 +1,8 @@
+<div>
+  <button (click)="merch = movie">Cool Movie Merch</button>
+  <button (click)="merch = gamer">Cool Gamer Merch</button>
+</div>
+<hr>
+<div class="movie" *ngIf="merch === 'movie'">[ cool movie merch content ]</div>
+<hr>
+<div class="gamer" *ngIf="merch === 'gamer'">[ cool gamer merch content ]</div>
