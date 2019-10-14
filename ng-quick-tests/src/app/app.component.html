@@ -1,7 +1,9 @@
 <div>
-  <button (click)="merch = movie">Cool Movie Merch</button>
-  <button (click)="merch = gamer">Cool Gamer Merch</button>
+  <button (click)="changeVar('movie')">Cool Movie Merch</button>
+  <button (click)="changeVar('gamer')">Cool Gamer Merch</button>
 </div>
+<hr>
+<p appSamsDirective>I want to style this &lt;p&gt; tag with a directive!</p>
 <hr>
 <div class="movie" *ngIf="merch === 'movie'">[ cool movie merch content ]</div>
 <hr>
