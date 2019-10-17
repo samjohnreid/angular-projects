@@ -28,7 +28,8 @@
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
       </ng-template>
-      <p appBasicHighlight>Style me with a basic directive!</p>
+      <p appBasicHighlight (mouseenter)="samFunc()">Style me with a basic directive!</p>
+      <p appBetterHighlight (click)="samFunc2()">Style me with a BETTER directive!</p>
     </div>
   </div>
 </div>
