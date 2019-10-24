@@ -5,6 +5,13 @@
         class="btn btn-primary"
         (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
       <br><br>
+      <div [ngSwitch]="samsSwitchValue">
+        <div *ngSwitchCase="10">10!</div>
+        <div *ngSwitchCase="20">20!</div>
+        <div *ngSwitchCase="30">30!</div>
+        <div *ngSwitchDefault>Default!</div>
+      </div>
+      <br><br>
       <ul class="list-group">
         <div *ngIf="onlyOdd">
           <li
@@ -29,7 +36,7 @@
         <p>Only odd</p>
       </ng-template>
       <p appBasicHighlight (mouseenter)="samFunc()">Style me with a basic directive!</p>
-      <p appBetterHighlight (click)="samFunc2()">Style me with a BETTER directive!</p>
+      <p appBetterHighlight (click)="samFunc2()" [defaultColor]="'orange'" [highlightColor]="'teal'">Style me with a BETTER directive!</p>
     </div>
   </div>
 </div>

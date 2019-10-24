@@ -12,6 +12,8 @@ export class AppComponent {
   evenNumbers = [2, 4];
   onlyOdd = false;
 
+  samsSwitchValue = 100;
+
   samFunc() {
     console.log('sdhjkfgasfakjsdf');
   }
