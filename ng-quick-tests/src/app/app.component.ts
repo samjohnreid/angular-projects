@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-quick-tests';
+
+  merch = 'movie';
+
+  changeVar(val) {
+    this.merch = val;
+  }
 }
