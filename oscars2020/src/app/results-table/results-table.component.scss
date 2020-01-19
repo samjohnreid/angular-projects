@@ -1,0 +1,9 @@
+td {
+  border: 1px solid grey;
+  padding: 10px;
+  text-align: center;
+
+  &:first-child {
+    text-align: left;
+  }
+}
