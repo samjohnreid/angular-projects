@@ -9,7 +9,7 @@ import { WinnersComponent } from './winners/winners.component';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent },
-  { path: 'cast-votes', component: UserVotesComponent },
+  { path: 'cast-votes/:name', component: UserVotesComponent },
   { path: 'results', component: ResultsTableComponent },
   { path: 'votes', component: VotesTableComponent },
   { path: 'winners', component: WinnersComponent }

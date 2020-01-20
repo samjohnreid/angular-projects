@@ -1,1 +1,49 @@
 <p>user-votes works! this is where the user makes their winner selections.</p>
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  
+  <div>
+    <label for="picture">Best Picture</label>
+    <input type="text" id="picture" ngModel name="bestPicture">
+  </div>
+  
+  <div>
+    <label for="director">Best Director</label>
+    <input type="text" id="director" ngModel name="bestDirector">
+  </div>
+
+  <div>
+    <label for="actor">Best Actor</label>
+    <input type="text" id="actor" ngModel name="bestActor">
+  </div>
+
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+  
+</form>
+
+<div *ngIf="submitted">
+  <h3>You submitted the following info:</h3>
+  <p>Picture: {{ userVotes.picture }}</p>
+  <p>Director: {{ userVotes.director }}</p>
+  <p>Actor: {{ userVotes.actor }}</p>
+</div>
+
+<hr>
+
+<p>name: {{ user.name }}</p>
+
+<!-- Best Picture
+Best Director
+Best Actor
+Best Actress
+Best Supporting Actor
+Best Supporting Actress
+Best Original Screenplay
+Best Adapted Screenplay
+Best Animated Feature
+Best Visual Effects
+
+Best Costume Design
+Best Makeup and Hairstyling -->
