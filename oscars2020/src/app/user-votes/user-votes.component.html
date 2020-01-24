@@ -25,14 +25,24 @@
 
 <div *ngIf="submitted">
   <h3>You submitted the following info:</h3>
-  <p>Picture: {{ userVotes.picture }}</p>
-  <p>Director: {{ userVotes.director }}</p>
-  <p>Actor: {{ userVotes.actor }}</p>
+  <p>Picture: {{ userVotes.dave.picture }}</p>
+  <p>Director: {{ userVotes.dave.director }}</p>
+  <p>Actor: {{ userVotes.dave.actor }}</p>
 </div>
 
 <hr>
 
 <p>name: {{ user.name }}</p>
+
+<hr>
+
+<p>{{ welcomeMsg() }}</p>
+
+<hr>
+
+<div>{{ testFunc() }}</div>
+
+<ul><li *ngFor="let test of userVotes.dave">{{ test.picture }}</li></ul>
 
 <!-- Best Picture
 Best Director

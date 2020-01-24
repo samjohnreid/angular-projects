@@ -12,18 +12,30 @@ export class UserVotesComponent implements OnInit {
   user: {
     name: string
   };
-  
-  userVotesSam = {
-    picture: '',
-    director: '',
-    actor: ''
-  };
 
-  userVotesDave = {
-    picture: '',
-    director: '',
-    actor: ''
-  };
+  userVotes = {
+    "sam": [
+      {
+        "picture": "sam picture",
+        "director": "sam director",
+        "actor": "sam actor"
+      }
+    ],
+    "dave": [
+      {
+        "picture": "dave picture",
+        "director": "dave director",
+        "actor": "dave actor"
+      }
+    ],
+    "bianca": [
+      {
+        "picture": "bianca picture",
+        "director": "bianca director",
+        "actor": "bianca actor"
+      }
+    ]
+  }
 
   submitted = false;
   
@@ -35,13 +47,29 @@ export class UserVotesComponent implements OnInit {
     };
   }
 
+  welcomeMsg() {
+    let name;
+    if (this.user.name === 'dave') {
+      name = 'Dave';
+    } else if (this.user.name === 'sam') {
+      name = 'Sam';
+    } else if (this.user.name === 'bianca') {
+      name = 'Bianca';
+    }
+    return `Hi, ${name}!`;
+  }
+
+  testFunc() {
+    console.log(this.userVotes);
+  }
+
   onSubmit(form: NgForm) {
     
     this.submitted = true;
     
-    this.userVotesSam.picture = form.value.bestPicture;
-    this.userVotesSam.director = form.value.bestDirector;
-    this.userVotesSam.actor = form.value.bestActor;
+    // this.userVotesSam.picture = form.value.bestPicture;
+    // this.userVotesSam.director = form.value.bestDirector;
+    // this.userVotesSam.actor = form.value.bestActor;
     
   }
 
