@@ -13,33 +13,68 @@ export class UserVotesComponent implements OnInit {
     name: string
   };
 
-  userVotes = {
-    "sam": [
-      {
-        "picture": "sam picture",
-        "director": "sam director",
-        "actor": "sam actor"
-      }
-    ],
-    "dave": [
-      {
-        "picture": "dave picture",
-        "director": "dave director",
-        "actor": "dave actor"
-      }
-    ],
-    "bianca": [
-      {
-        "picture": "bianca picture",
-        "director": "bianca director",
-        "actor": "bianca actor"
-      }
-    ]
-  }
+  userVotes: any = {
+    sam: {
+      picture: "",
+      director: "",
+      actor: "",
+      actress: "",
+      supportingActor: "",
+      supportingActress: "",
+      originalScreenplay: "",
+      adaptedScreenplay: "",
+      animatedFeature: "",
+      visualEffects: "",
+      costumeDesign: "",
+      makeupAndHairstyling: ""
+    },
+    dave: {
+      picture: "",
+      director: "",
+      actor: "",
+      actress: "",
+      supportingActor: "",
+      supportingActress: "",
+      originalScreenplay: "",
+      adaptedScreenplay: "",
+      animatedFeature: "",
+      visualEffects: "",
+      costumeDesign: "",
+      makeupAndHairstyling: ""
+    },
+    bianca: {
+      picture: "",
+      director: "",
+      actor: "",
+      actress: "",
+      supportingActor: "",
+      supportingActress: "",
+      originalScreenplay: "",
+      adaptedScreenplay: "",
+      animatedFeature: "",
+      visualEffects: "",
+      costumeDesign: "",
+      makeupAndHairstyling: ""
+    },
+    dom: {
+      picture: "",
+      director: "",
+      actor: "",
+      actress: "",
+      supportingActor: "",
+      supportingActress: "",
+      originalScreenplay: "",
+      adaptedScreenplay: "",
+      animatedFeature: "",
+      visualEffects: "",
+      costumeDesign: "",
+      makeupAndHairstyling: ""
+    }
+  };
 
-  submitted = false;
-  
-  constructor(private route: ActivatedRoute) { }
+  submitted: boolean = false;
+
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.user = {
@@ -47,30 +82,36 @@ export class UserVotesComponent implements OnInit {
     };
   }
 
-  welcomeMsg() {
-    let name;
-    if (this.user.name === 'dave') {
-      name = 'Dave';
-    } else if (this.user.name === 'sam') {
-      name = 'Sam';
-    } else if (this.user.name === 'bianca') {
-      name = 'Bianca';
+  userVotesObject() {
+    switch(this.user.name) {
+      case 'sam':
+        return this.userVotes.sam;
+      case 'dave':
+        return this.userVotes.dave;
+      case 'dom':
+        return this.userVotes.dom;
     }
-    return `Hi, ${name}!`;
-  }
-
-  testFunc() {
-    console.log(this.userVotes);
   }
 
   onSubmit(form: NgForm) {
-    
+
     this.submitted = true;
-    
-    // this.userVotesSam.picture = form.value.bestPicture;
-    // this.userVotesSam.director = form.value.bestDirector;
-    // this.userVotesSam.actor = form.value.bestActor;
-    
+
+    this.userVotesObject().picture = form.value.picture;
+    this.userVotesObject().director = form.value.director;
+    this.userVotesObject().actor = form.value.actor;
+    this.userVotesObject().actress = form.value.actress;
+    this.userVotesObject().supportingActor = form.value.supportingActor;
+    this.userVotesObject().supportingActress = form.value.supportingActress;
+    this.userVotesObject().originalScreenplay = form.value.originalScreenplay;
+    this.userVotesObject().adaptedScreenplay = form.value.adaptedScreenplay;
+    this.userVotesObject().animatedFeature = form.value.animatedFeature;
+    this.userVotesObject().visualEffects = form.value.visualEffects;
+    this.userVotesObject().costumeDesign = form.value.costumeDesign;
+    this.userVotesObject().makeupAndHairstyling = form.value.makeupAndHairstyling;
+
+    console.log(this.userVotesObject());
+
   }
 
 }

@@ -1,59 +1,79 @@
 <p>user-votes works! this is where the user makes their winner selections.</p>
 
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-  
   <div>
     <label for="picture">Best Picture</label>
-    <input type="text" id="picture" ngModel name="bestPicture">
+    <input type="text" id="picture" ngModel name="picture">
   </div>
-  
   <div>
     <label for="director">Best Director</label>
-    <input type="text" id="director" ngModel name="bestDirector">
+    <input type="text" id="director" ngModel name="director">
   </div>
-
   <div>
     <label for="actor">Best Actor</label>
-    <input type="text" id="actor" ngModel name="bestActor">
+    <select id="actor" ngModel name="actor">
+      <option value="Joaquin Phoenix, Joker">Joaquin Phoenix, Joker</option>
+      <option value="Adam Driver, Marriage Story">Adam Driver, Marriage Story</option>
+      <option value="Leonardo DiCaprio, Once Upon a Time in Hollywood">Leonardo DiCaprio, Once Upon a Time in Hollywood</option>
+      <option value="Antonio Banderas, Pain and Glory">Antonio Banderas, Pain and Glory</option>
+      <option value="Jonathan Pryce, The Two Popes">Jonathan Pryce, The Two Popes</option>
+    </select>
   </div>
-
+  <div>
+    <label for="actor">Best Actress</label>
+    <input type="text" id="actress" ngModel name="actress">
+  </div>
+  <div>
+    <label for="actor">Best Supporting Actor</label>
+    <input type="text" id="supportingActor" ngModel name="supportingActor">
+  </div>
+  <div>
+    <label for="actor">Best Supporting Actress</label>
+    <input type="text" id="supportingActress" ngModel name="supportingActress">
+  </div>
+  <div>
+    <label for="actor">Best Original Screenplay</label>
+    <input type="text" id="originalScreenplay" ngModel name="originalScreenplay">
+  </div>
+  <div>
+    <label for="actor">Best Adapted Screenplay</label>
+    <input type="text" id="adaptedScreenplay" ngModel name="adaptedScreenplay">
+  </div>
+  <div>
+    <label for="actor">Best Animated Feature</label>
+    <input type="text" id="animatedFeature" ngModel name="animatedFeature">
+  </div>
+  <div>
+    <label for="actor">Best Visual Effects</label>
+    <input type="text" id="visualEffects" ngModel name="visualEffects">
+  </div>
+  <div>
+    <label for="actor">Best Costume Design</label>
+    <input type="text" id="costumeDesign" ngModel name="costumeDesign">
+  </div>
+  <div>
+    <label for="actor">Best Makeup and Hairstyling</label>
+    <input type="text" id="makeupAndHairstyling" ngModel name="makeupAndHairstyling">
+  </div>
   <div>
     <button type="submit">Submit</button>
   </div>
-  
 </form>
 
 <div *ngIf="submitted">
   <h3>You submitted the following info:</h3>
-  <p>Picture: {{ userVotes.dave.picture }}</p>
-  <p>Director: {{ userVotes.dave.director }}</p>
-  <p>Actor: {{ userVotes.dave.actor }}</p>
+  <ul>
+    <li>Best Picture: {{ userVotesObject().picture }}</li>
+    <li>Best Director: {{ userVotesObject().director }}</li>
+    <li>Best Actor: {{ userVotesObject().actor }}</li>
+    <li>Best Actress: {{ userVotesObject().actress }}</li>
+    <li>Best Supporting Actor: {{ userVotesObject().supportingActor }}</li>
+    <li>Best Supporting Actress: {{ userVotesObject().supportingActress }}</li>
+    <li>Best Original Screenplay: {{ userVotesObject().originalScreenplay }}</li>
+    <li>Best Adapted Screenplay: {{ userVotesObject().adaptedScreenplay }}</li>
+    <li>Best Animated Feature: {{ userVotesObject().animatedFeature }}</li>
+    <li>Best Visual Effects: {{ userVotesObject().visualEffects }}</li>
+    <li>Best Costume Design: {{ userVotesObject().costumeDesign }}</li>
+    <li>Best Makeup and Hairstyling: {{ userVotesObject().makeupAndHairstyling }}</li>
+  </ul>
 </div>
-
-<hr>
-
-<p>name: {{ user.name }}</p>
-
-<hr>
-
-<p>{{ welcomeMsg() }}</p>
-
-<hr>
-
-<div>{{ testFunc() }}</div>
-
-<ul><li *ngFor="let test of userVotes.dave">{{ test.picture }}</li></ul>
-
-<!-- Best Picture
-Best Director
-Best Actor
-Best Actress
-Best Supporting Actor
-Best Supporting Actress
-Best Original Screenplay
-Best Adapted Screenplay
-Best Animated Feature
-Best Visual Effects
-
-Best Costume Design
-Best Makeup and Hairstyling -->
