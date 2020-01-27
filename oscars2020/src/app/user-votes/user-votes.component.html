@@ -77,3 +77,19 @@
     <li>Best Makeup and Hairstyling: {{ userVotesObject().makeupAndHairstyling }}</li>
   </ul>
 </div>
+
+<hr>
+
+<form #f2="ngForm" (ngSubmit)="onSubmit2(f2.value)">
+  <div>
+    <label for="dbTest1">DB Test One</label>
+    <input type="text" id="dbTest1" ngModel name="dbTest1">
+  </div>
+  <div>
+    <label for="dbTest2">DB Test Two</label>
+    <input type="text" id="dbTest2" ngModel name="dbTest2">
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>

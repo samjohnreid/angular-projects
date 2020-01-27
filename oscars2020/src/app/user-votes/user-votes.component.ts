@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-votes',
@@ -74,7 +75,7 @@ export class UserVotesComponent implements OnInit {
 
   submitted: boolean = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit() {
     this.user = {
@@ -111,6 +112,19 @@ export class UserVotesComponent implements OnInit {
     this.userVotesObject().makeupAndHairstyling = form.value.makeupAndHairstyling;
 
     console.log(this.userVotesObject());
+
+  }
+
+  onSubmit2(postData: { dbTest1: string; dbTest2: string }) {
+    
+    console.log(postData);
+
+    this.http.post(
+      'https://ng-test-54e77.firebaseio.com/posts.json',
+      postData
+    ).subscribe(responseData => {
+      console.log(responseData);
+    });
 
   }
 
