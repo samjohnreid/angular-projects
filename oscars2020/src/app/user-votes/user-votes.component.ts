@@ -16,6 +16,7 @@ export class UserVotesComponent implements OnInit {
 
   userVotes: any = {
     sam: {
+      user: "",
       picture: "",
       director: "",
       actor: "",
@@ -99,6 +100,8 @@ export class UserVotesComponent implements OnInit {
 
     this.submitted = true;
 
+    this.userVotesObject().user = this.user.name;
+    
     this.userVotesObject().picture = form.value.picture;
     this.userVotesObject().director = form.value.director;
     this.userVotesObject().actor = form.value.actor;
