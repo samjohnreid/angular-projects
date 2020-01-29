@@ -74,6 +74,7 @@ export class UserVotesComponent implements OnInit {
   };
 
   submitted: boolean = false;
+  postData: any;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -112,6 +113,15 @@ export class UserVotesComponent implements OnInit {
     this.userVotesObject().makeupAndHairstyling = form.value.makeupAndHairstyling;
 
     console.log(this.userVotesObject());
+
+    this.postData = this.userVotesObject();
+
+    this.http.post(
+      'https://ng-test-54e77.firebaseio.com/posts.json',
+      this.postData
+    ).subscribe(responseData => {
+      console.log(responseData);
+    });
 
   }
 
