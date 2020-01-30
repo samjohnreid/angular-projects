@@ -82,9 +82,20 @@
 
 <div *ngIf="loadedPosts.length < 1 && !isFetching">No data submitted!</div>
 
-<ul *ngIf="loadedPosts.length >= 1 && !isFetching">
-  <li *ngFor="let post of loadedPosts">
-    <h2>{{ post.actor }}</h2>
-  </li>
-</ul>
+<ng-container *ngIf="loadedPosts.length >= 1 && !isFetching">
+  <div *ngFor="let post of loadedPosts">
+    {{ post.picture }}<br>
+    {{ post.director }}<br>
+    {{ post.actor }}<br>
+    {{ post.actress }}<br>
+    {{ post.supportingActor }}<br>
+    {{ post.supportingActress }}<br>
+    {{ post.originalScreenplay }}<br>
+    {{ post.adaptedScreenplay }}<br>
+    {{ post.animatedFeature }}<br>
+    {{ post.visualEffects }}<br>
+    {{ post.costumeDesign }}<br>
+    {{ post.makeupAndHairstyling }}<br>
+  </div>
+</ng-container>
 <div *ngIf="isFetching">Fetching data...</div>
