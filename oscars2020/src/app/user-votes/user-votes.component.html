@@ -61,7 +61,7 @@
 </form>
 
 <div *ngIf="submitted">
-  <h3>You submitted the following info:</h3>
+  <h3>You ({{ user.name }}) submitted the following info:</h3>
   <ul>
     <li>Best Picture: {{ userVotesObject().picture }}</li>
     <li>Best Director: {{ userVotesObject().director }}</li>
@@ -80,16 +80,11 @@
 
 <hr>
 
-<form #f2="ngForm" (ngSubmit)="onSubmit2(f2.value)">
-  <div>
-    <label for="dbTest1">DB Test One</label>
-    <input type="text" id="dbTest1" ngModel name="dbTest1">
-  </div>
-  <div>
-    <label for="dbTest2">DB Test Two</label>
-    <input type="text" id="dbTest2" ngModel name="dbTest2">
-  </div>
-  <div>
-    <button type="submit">Submit</button>
-  </div>
-</form>
+<div *ngIf="loadedPosts.length < 1 && !isFetching">No data submitted!</div>
+
+<ul *ngIf="loadedPosts.length >= 1 && !isFetching">
+  <li *ngFor="let post of loadedPosts">
+    <h2>{{ post.actor }}</h2>
+  </li>
+</ul>
+<div *ngIf="isFetching">Fetching data...</div>

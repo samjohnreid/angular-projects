@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-votes',
@@ -31,6 +32,7 @@ export class UserVotesComponent implements OnInit {
       makeupAndHairstyling: ""
     },
     dave: {
+      user: "",
       picture: "",
       director: "",
       actor: "",
@@ -45,6 +47,7 @@ export class UserVotesComponent implements OnInit {
       makeupAndHairstyling: ""
     },
     bianca: {
+      user: "",
       picture: "",
       director: "",
       actor: "",
@@ -59,6 +62,7 @@ export class UserVotesComponent implements OnInit {
       makeupAndHairstyling: ""
     },
     dom: {
+      user: "",
       picture: "",
       director: "",
       actor: "",
@@ -75,7 +79,12 @@ export class UserVotesComponent implements OnInit {
   };
 
   submitted: boolean = false;
+  
   postData: any;
+
+  loadedPosts = [];
+
+  isFetching = false;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -83,6 +92,8 @@ export class UserVotesComponent implements OnInit {
     this.user = {
       name: this.route.snapshot.params['name']
     };
+
+    this.fetchPosts();
   }
 
   userVotesObject() {
@@ -91,6 +102,8 @@ export class UserVotesComponent implements OnInit {
         return this.userVotes.sam;
       case 'dave':
         return this.userVotes.dave;
+      case 'bianca':
+        return this.userVotes.bianca;
       case 'dom':
         return this.userVotes.dom;
     }
@@ -119,26 +132,38 @@ export class UserVotesComponent implements OnInit {
 
     this.postData = this.userVotesObject();
 
-    this.http.post(
-      'https://ng-test-54e77.firebaseio.com/posts.json',
-      this.postData
-    ).subscribe(responseData => {
-      console.log(responseData);
-    });
+    // this.http.post(
+    //   'https://ng-test-54e77.firebaseio.com/posts.json',
+    //   this.postData
+    // ).subscribe(responseData => {
+    //   console.log(responseData);
+    // });
 
   }
 
-  onSubmit2(postData: { dbTest1: string; dbTest2: string }) {
-    
-    console.log(postData);
+  onFetchPosts() {
+    // Send HTTP request
+    this.fetchPosts();
+  }
 
-    this.http.post(
-      'https://ng-test-54e77.firebaseio.com/posts.json',
-      postData
-    ).subscribe(responseData => {
-      console.log(responseData);
+  private fetchPosts() {
+    this.isFetching = true;
+    this.http
+      .get('https://ng-test-54e77.firebaseio.com/posts.json')
+      .pipe(map(responseData => {
+        const postsArray = [];
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            postsArray.push({ ...responseData[key], id: key });
+          }
+        }
+        return postsArray;
+      }))
+      .subscribe(posts => {
+        this.isFetching = false;
+        this.loadedPosts = posts;
+        console.log(posts);
     });
-
   }
 
 }
