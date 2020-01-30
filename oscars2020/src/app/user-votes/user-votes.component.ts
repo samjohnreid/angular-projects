@@ -83,6 +83,7 @@ export class UserVotesComponent implements OnInit {
   postData: any;
 
   loadedPosts = [];
+  loadedPostsSam = [];
 
   isFetching = false;
 
@@ -93,7 +94,7 @@ export class UserVotesComponent implements OnInit {
       name: this.route.snapshot.params['name']
     };
 
-    this.fetchPosts();
+    this.fetchPosts(this.user.name);
   }
 
   userVotesObject() {
@@ -143,10 +144,10 @@ export class UserVotesComponent implements OnInit {
 
   onFetchPosts() {
     // Send HTTP request
-    this.fetchPosts();
+    this.fetchPosts(this.user.name);
   }
 
-  private fetchPosts() {
+  private fetchPosts(user) {
     this.isFetching = true;
     this.http
       .get('https://ng-test-54e77.firebaseio.com/posts.json')
@@ -161,8 +162,7 @@ export class UserVotesComponent implements OnInit {
       }))
       .subscribe(posts => {
         this.isFetching = false;
-        this.loadedPosts = posts;
-        console.log(posts);
+        this.loadedPosts = posts.filter(votesByUser => votesByUser.user === user);
     });
   }
 
