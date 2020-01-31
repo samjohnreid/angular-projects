@@ -133,12 +133,12 @@ export class UserVotesComponent implements OnInit {
 
     this.postData = this.userVotesObject();
 
-    // this.http.post(
-    //   'https://ng-test-54e77.firebaseio.com/posts.json',
-    //   this.postData
-    // ).subscribe(responseData => {
-    //   console.log(responseData);
-    // });
+    this.http.put(
+      'https://ng-test-54e77.firebaseio.com/'+this.user.name+'.json',
+      this.postData
+    ).subscribe(responseData => {
+      console.log(responseData);
+    });
 
   }
 

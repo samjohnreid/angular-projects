@@ -67,7 +67,7 @@
   </div>
 </form>
 
-<form (ngSubmit)="onSubmit(fedit)" #fedit="ngForm">
+<!-- <form (ngSubmit)="onSubmit(fedit)" #fedit="ngForm">
   <fieldset>
     <legend>Edit Votes:</legend>
     <div>
@@ -128,7 +128,7 @@
   <div>
     <button type="submit">Edit</button>
   </div>
-</form>
+</form> -->
 
 <ng-container *ngIf="loadedPosts.length >= 1 && !isFetching">
   <div *ngFor="let post of loadedPosts">
