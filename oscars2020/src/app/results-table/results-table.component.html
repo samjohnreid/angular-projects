@@ -1,32 +1,7 @@
-<p>results-table works! this is where we display the results</p>
+<div *ngIf="isFetching">Fetching data...</div>
 
-<table>
-  <thead>
-    <tr>
-      <td>Award</td>
-      <td>Sam</td>
-      <td>Dave</td>
-      <td>Bianca</td>
-      <td>Dom</td>
-      <td>Etc.</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Best Picture</td>
-      <td>-</td>
-      <td>✅</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>Best Actor</td>
-      <td>-</td>
-      <td>❌</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
+<p *ngIf="loadedPosts.length < 1 && !isFetching">No votes have been submitted yet! Please come back later...</p>
+
+<p *ngIf="loadedPosts.length >= 1 && !isFetching">
+  results!
+</p>

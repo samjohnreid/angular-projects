@@ -181,8 +181,6 @@ export class UserVotesComponent implements OnInit {
     "1917",
     "Maleficent: Mistress of Evil"
   ];
-
-  submitted: boolean = false;
   
   postData: any;
 
@@ -219,9 +217,7 @@ export class UserVotesComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-
-    this.submitted = true;
-
+    
     this.userVotesObject().user = this.user.name;
     
     this.userVotesObject().picture = form.value.picture;
@@ -237,22 +233,16 @@ export class UserVotesComponent implements OnInit {
     this.userVotesObject().costumeDesign = form.value.costumeDesign;
     this.userVotesObject().makeupAndHairstyling = form.value.makeupAndHairstyling;
 
-    console.log(this.userVotesObject());
-
     this.postData = this.userVotesObject();
 
     this.http.put(
       'https://ng-test-54e77.firebaseio.com/votes/' + this.user.name + '.json',
       this.postData
     ).subscribe(responseData => {
+      location.reload();
       console.log(responseData);
     });
 
-  }
-
-  onFetchPosts() {
-    // Send HTTP request
-    this.fetchPosts(this.user.name);
   }
 
   private fetchPosts(user: string) {
@@ -271,8 +261,6 @@ export class UserVotesComponent implements OnInit {
       .subscribe(posts => {
         this.isFetching = false;
         this.loadedPosts = posts.filter(votesByUser => votesByUser.user === user);
-        // this.loadedPosts = posts;
-        console.log(this.loadedPosts);
     });
   }
 
