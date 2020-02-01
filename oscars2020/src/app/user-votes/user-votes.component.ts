@@ -20,7 +20,7 @@ export class UserVotesComponent implements OnInit {
   screenName: string;
 
   userVotes: any = {
-    sam: {
+    bianca: {
       user: "",
       picture: "",
       director: "",
@@ -50,7 +50,7 @@ export class UserVotesComponent implements OnInit {
       costumeDesign: "",
       makeupAndHairstyling: ""
     },
-    bianca: {
+    dom: {
       user: "",
       picture: "",
       director: "",
@@ -65,7 +65,7 @@ export class UserVotesComponent implements OnInit {
       costumeDesign: "",
       makeupAndHairstyling: ""
     },
-    dom: {
+    sam: {
       user: "",
       picture: "",
       director: "",
@@ -201,18 +201,18 @@ export class UserVotesComponent implements OnInit {
 
   userVotesObject() {
     switch(this.user.name) {
-      case 'sam':
-        this.screenName = 'Sam';
-        return this.userVotes.sam;
-      case 'dave':
-        this.screenName = 'Dave';
-        return this.userVotes.dave;
       case 'bianca':
         this.screenName = 'Bianca';
         return this.userVotes.bianca;
+      case 'dave':
+        this.screenName = 'Dave';
+        return this.userVotes.dave;
       case 'dom':
         this.screenName = 'Dommers';
         return this.userVotes.dom;
+      case 'sam':
+        this.screenName = 'Sam';
+        return this.userVotes.sam;
     }
   }
 

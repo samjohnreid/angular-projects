@@ -2,6 +2,126 @@
 
 <p *ngIf="loadedPosts.length < 1 && !isFetching">No votes have been submitted yet! Please come back later...</p>
 
-<p *ngIf="loadedPosts.length >= 1 && !isFetching">
-  results!
-</p>
+<div *ngIf="loadedPostsBianca.length >= 1 && !isFetching">
+  <hr>
+  <div *ngFor="let el of loadedPostsBianca">
+    {{ el.id }}
+    <br>
+    {{ el.picture }}
+    <br>
+    {{ el.director }}
+    <br>
+    {{ el.actor }}
+    <br>
+    {{ el.actress }}
+    <br>
+    {{ el.supportingActor }}
+    <br>
+    {{ el.supportingActress }}
+    <br>
+    {{ el.originalScreenplay }}
+    <br>
+    {{ el.adaptedScreenplay }}
+    <br>
+    {{ el.animatedFeature }}
+    <br>
+    {{ el.visualEffects }}
+    <br>
+    {{ el.costumeDesign }}
+    <br>
+    {{ el.makeupAndHairstyling }}
+  </div>
+</div>
+
+<div *ngIf="loadedPostsDave.length >= 1 && !isFetching">
+  <hr>
+  <div *ngFor="let el of loadedPostsDave">
+    {{ el.id }}
+    <br>
+    {{ el.picture }}
+    <br>
+    {{ el.director }}
+    <br>
+    {{ el.actor }}
+    <br>
+    {{ el.actress }}
+    <br>
+    {{ el.supportingActor }}
+    <br>
+    {{ el.supportingActress }}
+    <br>
+    {{ el.originalScreenplay }}
+    <br>
+    {{ el.adaptedScreenplay }}
+    <br>
+    {{ el.animatedFeature }}
+    <br>
+    {{ el.visualEffects }}
+    <br>
+    {{ el.costumeDesign }}
+    <br>
+    {{ el.makeupAndHairstyling }}
+  </div>
+</div>
+
+<div *ngIf="loadedPostsDom.length >= 1 && !isFetching">
+  <hr>
+  <div *ngFor="let el of loadedPostsDom">
+    {{ el.id }}
+    <br>
+    {{ el.picture }}
+    <br>
+    {{ el.director }}
+    <br>
+    {{ el.actor }}
+    <br>
+    {{ el.actress }}
+    <br>
+    {{ el.supportingActor }}
+    <br>
+    {{ el.supportingActress }}
+    <br>
+    {{ el.originalScreenplay }}
+    <br>
+    {{ el.adaptedScreenplay }}
+    <br>
+    {{ el.animatedFeature }}
+    <br>
+    {{ el.visualEffects }}
+    <br>
+    {{ el.costumeDesign }}
+    <br>
+    {{ el.makeupAndHairstyling }}
+  </div>
+</div>
+
+<div *ngIf="loadedPostsSam.length >= 1 && !isFetching">
+  <hr>
+  <div *ngFor="let el of loadedPostsSam">
+    {{ el.id }}
+    <br>
+    {{ el.picture }}
+    <br>
+    {{ el.director }}
+    <br>
+    {{ el.actor }}
+    <br>
+    {{ el.actress }}
+    <br>
+    {{ el.supportingActor }}
+    <br>
+    {{ el.supportingActress }}
+    <br>
+    {{ el.originalScreenplay }}
+    <br>
+    {{ el.adaptedScreenplay }}
+    <br>
+    {{ el.animatedFeature }}
+    <br>
+    {{ el.visualEffects }}
+    <br>
+    {{ el.costumeDesign }}
+    <br>
+    {{ el.makeupAndHairstyling }}
+  </div>
+</div>

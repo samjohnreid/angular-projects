@@ -12,6 +12,10 @@ export class ResultsTableComponent implements OnInit {
   postData: any;
 
   loadedPosts = [];
+  loadedPostsBianca = [];
+  loadedPostsDave = [];
+  loadedPostsDom = [];
+  loadedPostsSam = [];
 
   isFetching = false;
   
@@ -37,6 +41,11 @@ export class ResultsTableComponent implements OnInit {
       .subscribe(posts => {
         this.isFetching = false;
         this.loadedPosts = posts;
+        this.loadedPostsBianca = posts.filter(votesByUser => votesByUser.id === 'bianca');
+        this.loadedPostsDave = posts.filter(votesByUser => votesByUser.id === 'dave');
+        this.loadedPostsDom = posts.filter(votesByUser => votesByUser.id === 'dom');
+        this.loadedPostsSam = posts.filter(votesByUser => votesByUser.id === 'sam');
+        console.log(this.loadedPostsSam);
     });
   }
 
