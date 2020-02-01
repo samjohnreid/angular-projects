@@ -5,10 +5,16 @@
   <div>
     <h2>Welcome, {{ screenName }}!</h2>
   </div>
+  
+  <div *ngIf="isFetching">Fetching data...</div>
 
   <p *ngIf="loadedPosts.length < 1 && !isFetching">Get your votes in below!</p>
 
-  <div *ngIf="isFetching">Fetching data...</div>
+  <p *ngIf="loadedPosts.length >= 1 && !isFetching">
+    Your votes are below!
+    <br>
+    Come back and change them any time before Sunday Feb 9th 20:00 🇺🇸 / Monday Feb 10th 01:00 🇬🇧 / 02:00 🇳🇴
+  </p>
 
   <form (ngSubmit)="onSubmit(fsubmit)" #fsubmit="ngForm" *ngIf="!isFetching">
     <fieldset>
