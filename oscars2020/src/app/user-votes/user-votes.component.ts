@@ -11,6 +11,8 @@ import { map } from 'rxjs/operators';
 })
 export class UserVotesComponent implements OnInit {
 
+  deadlineExpired: boolean = false;
+  
   user: {
     name: string
   };
@@ -79,6 +81,106 @@ export class UserVotesComponent implements OnInit {
       makeupAndHairstyling: ""
     }
   };
+
+  categoryPicture = [
+    "Ford v Ferrari",
+    "The Irishman",
+    "Jojo Rabbit",
+    "Joker",
+    "Little Women",
+    "Marriage Story",
+    "1917",
+    "Once Upon a Time in Hollywood",
+    "Parasite"
+  ];
+
+  categoryDirector = [
+    "Martin Scorsese – The Irishman",
+    "Todd Phillips – Joker",
+    "Sam Mendes – 1917",
+    "Quentin Tarantino – Once Upon a Time in Hollywood",
+    "Bong Joon-ho – Parasite"
+  ];
+
+  categoryActor = [
+    "Antonio Banderas – Pain and Glory",
+    "Leonardo DiCaprio – Once Upon a Time in Hollywood",
+    "Adam Driver – Marriage Story",
+    "Joaquin Phoenix – Joker",
+    "Jonathan Pryce – The Two Popes"
+  ];
+
+  categoryActress = [
+    "Cynthia Erivo – Harriet",
+    "Scarlett Johansson – Marriage Story",
+    "Saoirse Ronan – Little Women",
+    "Charlize Theron – Bombshell",
+    "Renée Zellweger – Judy"
+  ];
+
+  categorySupportingActor = [
+    "Tom Hanks – A Beautiful Day in the Neighborhood",
+    "Anthony Hopkins – The Two Popes",
+    "Al Pacino – The Irishman",
+    "Joe Pesci – The Irishman",
+    "Brad Pitt – Once Upon a Time in Hollywood"
+  ];
+
+  categorySupportingActress = [
+    "Kathy Bates – Richard Jewell",
+    "Laura Dern – Marriage Story",
+    "Scarlett Johansson – Jojo Rabbit",
+    "Florence Pugh – Little Women",
+    "Margot Robbie – Bombshell"
+  ];
+
+  categoryOriginalScreenplay = [
+    "Knives Out – Rian Johnson",
+    "Marriage Story – Noah Baumbach",
+    "1917 – Sam Mendes and Krysty Wilson-Cairns",
+    "Once Upon a Time in Hollywood – Quentin Tarantino",
+    "Parasite – Bong Joon-ho and Han Jin-won"
+  ];
+
+  categoryAdaptedScreenplay = [
+    "The Irishman – Steven Zaillian",
+    "Jojo Rabbit – Taika Waititi",
+    "Joker – Todd Phillips and Scott Silver",
+    "Little Women – Greta Gerwig",
+    "The Two Popes – Anthony McCarten"
+  ];
+
+  categoryAnimatedFeature = [
+    "How to Train Your Dragon: The Hidden World",
+    "I Lost My Body",
+    "Klaus",
+    "Missing Link",
+    "Toy Story 4"
+  ];
+
+  categoryVisualEffects = [
+    "Avengers: Endgame",
+    "The Irishman",
+    "The Lion King",
+    "1917",
+    "Star Wars: The Rise of Skywalker"
+  ];
+
+  categoryCostumeDesign = [
+    "The Irishman",
+    "Jojo Rabbit",
+    "Joker",
+    "Little Women",
+    "Once Upon a Time in Hollywood"
+  ];
+  
+  categoryMakeupAndHairstyling = [
+    "Bombshell",
+    "Joker",
+    "Judy",
+    "1917",
+    "Maleficent: Mistress of Evil"
+  ];
 
   submitted: boolean = false;
   
