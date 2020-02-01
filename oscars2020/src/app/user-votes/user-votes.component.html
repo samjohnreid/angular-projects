@@ -1,12 +1,15 @@
 <div>
-  <h2>Welcome, {{ user.name }}!</h2>
+  <h2>Welcome, {{ screenName }}!</h2>
 </div>
 
-<div *ngIf="loadedPosts.length < 1 && !isFetching">You haven't voted yet! Get your votes in below:</div>
+<div *ngIf="loadedPosts.length < 1 && !isFetching">Get your votes in below!</div>
 
-<form (ngSubmit)="onSubmit(fsubmit)" #fsubmit="ngForm">
+<div *ngIf="isFetching">Fetching data...</div>
+
+<form (ngSubmit)="onSubmit(fsubmit)" #fsubmit="ngForm" *ngIf="!isFetching">
   <fieldset>
-    <legend>Submit Votes:</legend>
+    <legend *ngIf="loadedPosts.length < 1">Submit Votes:</legend>
+    <legend *ngIf="loadedPosts.length >= 1">Update Votes:</legend>
     <div>
       <label for="picture">Best Picture</label>
       <input type="text" id="picture" ngModel name="picture">
@@ -63,87 +66,7 @@
     </div>
   </fieldset>
   <div>
-    <button type="submit">Submit</button>
+    <button *ngIf="loadedPosts.length < 1" type="submit">Submit Votes</button>
+    <button *ngIf="loadedPosts.length >= 1" type="submit">Update Votes</button>
   </div>
 </form>
-
-<!-- <form (ngSubmit)="onSubmit(fedit)" #fedit="ngForm">
-  <fieldset>
-    <legend>Edit Votes:</legend>
-    <div>
-      <label for="picture">Best Picture</label>
-      <input type="text" id="picture" ngModel name="picture" [(ngModel)]="loadedPosts[0]['picture']">
-    </div>
-    <div>
-      <label for="director">Best Director</label>
-      <input type="text" id="director" ngModel name="director" [(ngModel)]="loadedPosts[0]['director']">
-    </div>
-    <div>
-      <label for="actor">Best Actor</label>
-      <select id="actor" ngModel name="actor">
-        <option value="Joaquin Phoenix, Joker">Joaquin Phoenix, Joker</option>
-        <option value="Adam Driver, Marriage Story">Adam Driver, Marriage Story</option>
-        <option value="Leonardo DiCaprio, Once Upon a Time in Hollywood">Leonardo DiCaprio, Once Upon a Time in Hollywood</option>
-        <option value="Antonio Banderas, Pain and Glory">Antonio Banderas, Pain and Glory</option>
-        <option value="Jonathan Pryce, The Two Popes">Jonathan Pryce, The Two Popes</option>
-      </select>
-    </div>
-    <div>
-      <label for="actor">Best Actress</label>
-      <input type="text" id="actress" ngModel name="actress">
-    </div>
-    <div>
-      <label for="actor">Best Supporting Actor</label>
-      <input type="text" id="supportingActor" ngModel name="supportingActor">
-    </div>
-    <div>
-      <label for="actor">Best Supporting Actress</label>
-      <input type="text" id="supportingActress" ngModel name="supportingActress">
-    </div>
-    <div>
-      <label for="actor">Best Original Screenplay</label>
-      <input type="text" id="originalScreenplay" ngModel name="originalScreenplay">
-    </div>
-    <div>
-      <label for="actor">Best Adapted Screenplay</label>
-      <input type="text" id="adaptedScreenplay" ngModel name="adaptedScreenplay">
-    </div>
-    <div>
-      <label for="actor">Best Animated Feature</label>
-      <input type="text" id="animatedFeature" ngModel name="animatedFeature">
-    </div>
-    <div>
-      <label for="actor">Best Visual Effects</label>
-      <input type="text" id="visualEffects" ngModel name="visualEffects">
-    </div>
-    <div>
-      <label for="actor">Best Costume Design</label>
-      <input type="text" id="costumeDesign" ngModel name="costumeDesign">
-    </div>
-    <div>
-      <label for="actor">Best Makeup and Hairstyling</label>
-      <input type="text" id="makeupAndHairstyling" ngModel name="makeupAndHairstyling">
-    </div>
-  </fieldset>
-  <div>
-    <button type="submit">Edit</button>
-  </div>
-</form> -->
-
-<ng-container *ngIf="loadedPosts.length >= 1 && !isFetching">
-  <div *ngFor="let post of loadedPosts">
-    {{ post.picture }}<br>
-    {{ post.director }}<br>
-    {{ post.actor }}<br>
-    {{ post.actress }}<br>
-    {{ post.supportingActor }}<br>
-    {{ post.supportingActress }}<br>
-    {{ post.originalScreenplay }}<br>
-    {{ post.adaptedScreenplay }}<br>
-    {{ post.animatedFeature }}<br>
-    {{ post.visualEffects }}<br>
-    {{ post.costumeDesign }}<br>
-    {{ post.makeupAndHairstyling }}<br>
-  </div>
-</ng-container>
-<div *ngIf="isFetching">Fetching data...</div>

@@ -15,6 +15,8 @@ export class UserVotesComponent implements OnInit {
     name: string
   };
 
+  screenName: string;
+
   userVotes: any = {
     sam: {
       user: "",
@@ -83,7 +85,6 @@ export class UserVotesComponent implements OnInit {
   postData: any;
 
   loadedPosts = [];
-  loadedPostsSam = [];
 
   isFetching = false;
 
@@ -95,17 +96,22 @@ export class UserVotesComponent implements OnInit {
     };
 
     this.fetchPosts(this.user.name);
+    this.userVotesObject();
   }
 
   userVotesObject() {
     switch(this.user.name) {
       case 'sam':
+        this.screenName = 'Sam';
         return this.userVotes.sam;
       case 'dave':
+        this.screenName = 'Dave';
         return this.userVotes.dave;
       case 'bianca':
+        this.screenName = 'Bianca';
         return this.userVotes.bianca;
       case 'dom':
+        this.screenName = 'Dommers';
         return this.userVotes.dom;
     }
   }
@@ -134,7 +140,7 @@ export class UserVotesComponent implements OnInit {
     this.postData = this.userVotesObject();
 
     this.http.put(
-      'https://ng-test-54e77.firebaseio.com/'+this.user.name+'.json',
+      'https://ng-test-54e77.firebaseio.com/votes/' + this.user.name + '.json',
       this.postData
     ).subscribe(responseData => {
       console.log(responseData);
@@ -147,10 +153,10 @@ export class UserVotesComponent implements OnInit {
     this.fetchPosts(this.user.name);
   }
 
-  private fetchPosts(user) {
+  private fetchPosts(user: string) {
     this.isFetching = true;
     this.http
-      .get('https://ng-test-54e77.firebaseio.com/posts.json')
+      .get('https://ng-test-54e77.firebaseio.com/votes.json')
       .pipe(map(responseData => {
         const postsArray = [];
         for (const key in responseData) {
@@ -163,6 +169,8 @@ export class UserVotesComponent implements OnInit {
       .subscribe(posts => {
         this.isFetching = false;
         this.loadedPosts = posts.filter(votesByUser => votesByUser.user === user);
+        // this.loadedPosts = posts;
+        console.log(this.loadedPosts);
     });
   }
 
