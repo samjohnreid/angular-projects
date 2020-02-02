@@ -176,6 +176,21 @@ export class WinnersComponent implements OnInit {
     "1917",
     "Maleficent: Mistress of Evil"
   ];
+
+  oscarWinners = {
+    picture: "",
+    director: "",
+    actor: "",
+    actress: "",
+    supportingActor: "",
+    supportingActress: "",
+    originalScreenplay: "",
+    adaptedScreenplay: "",
+    animatedFeature: "",
+    visualEffects: "",
+    costumeDesign: "",
+    makeupAndHairstyling: ""
+  };
   
   postData: any;
 
@@ -184,6 +199,7 @@ export class WinnersComponent implements OnInit {
   loadedPostsDave = [];
   loadedPostsDom = [];
   loadedPostsSam = [];
+  loadedPostsWinners = [];
 
   isFetching = false;
   
@@ -267,6 +283,28 @@ export class WinnersComponent implements OnInit {
     this.checkVoteAndUpdateWin(makeupAndHairstylingValue, 'makeupAndHairstyling', 'Sam');
 
     this.pushWinnerData();
+
+    this.oscarWinners.picture = form.value.picture;
+    this.oscarWinners.director = form.value.director;
+    this.oscarWinners.actor = form.value.actor;
+    this.oscarWinners.actress = form.value.actress;
+    this.oscarWinners.supportingActor = form.value.supportingActor;
+    this.oscarWinners.supportingActress = form.value.supportingActress;
+    this.oscarWinners.originalScreenplay = form.value.originalScreenplay;
+    this.oscarWinners.adaptedScreenplay = form.value.adaptedScreenplay;
+    this.oscarWinners.animatedFeature = form.value.animatedFeature;
+    this.oscarWinners.visualEffects = form.value.visualEffects;
+    this.oscarWinners.costumeDesign = form.value.costumeDesign;
+    this.oscarWinners.makeupAndHairstyling = form.value.makeupAndHairstyling;
+    
+    this.postData = this.oscarWinners;
+
+    this.http.put(
+      'https://ng-test-54e77.firebaseio.com/votes/winners.json',
+      this.postData
+    ).subscribe(responseData => {
+      console.log(responseData);
+    });
   }
 
   checkVoteAndUpdateWin(winner, category, user) {
@@ -344,6 +382,7 @@ export class WinnersComponent implements OnInit {
         this.loadedPostsDave = posts.filter(votesByUser => votesByUser.id === 'dave');
         this.loadedPostsDom = posts.filter(votesByUser => votesByUser.id === 'dom');
         this.loadedPostsSam = posts.filter(votesByUser => votesByUser.id === 'sam');
+        this.loadedPostsWinners = posts.filter(votesByUser => votesByUser.id === 'winners');
     });
   }
 

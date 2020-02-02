@@ -5,73 +5,73 @@
     <legend>Select Winners:</legend>
     <div>
       <label for="picture">Best Picture</label>
-      <select id="picture" ngModel name="picture">
+      <select id="picture" ngModel name="picture" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].picture">
         <option *ngFor="let option of categoryPicture">{{ option }}</option>
       </select>
     </div>
     <div>
       <label for="director">Best Director</label>
-      <select id="director" ngModel name="director">
+      <select id="director" ngModel name="director" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].director">
         <option *ngFor="let option of categoryDirector">{{ option }}</option>
       </select>
     </div>
     <div>
       <label for="actor">Best Actor</label>
-      <select id="actor" ngModel name="actor">
+      <select id="actor" ngModel name="actor" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].actor">
         <option *ngFor="let option of categoryActor">{{ option }}</option>
       </select>
     </div>
     <div>
       <label for="actress">Best Actress</label>
-      <select id="actress" ngModel name="actress">
+      <select id="actress" ngModel name="actress" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].actress">
         <option *ngFor="let option of categoryActress">{{ option }}</option>
       </select>
     </div>
     <div>
       <label for="supportingActor">Best Supporting Actor</label>
-      <select id="supportingActor" ngModel name="supportingActor">
+      <select id="supportingActor" ngModel name="supportingActor" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].supportingActor">
         <option *ngFor="let option of categorySupportingActor">{{ option }}</option>
       </select>
     </div>
     <div>
       <label for="supportingActress">Best Supporting Actress</label>
-      <select id="supportingActress" ngModel name="supportingActress">
+      <select id="supportingActress" ngModel name="supportingActress" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].supportingActress">
         <option *ngFor="let option of categorySupportingActress">{{ option }}</option>
       </select>
     </div>
     <div>
       <label for="originalScreenplay">Best Original Screenplay</label>
-      <select id="originalScreenplay" ngModel name="originalScreenplay">
+      <select id="originalScreenplay" ngModel name="originalScreenplay" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].originalScreenplay">
         <option *ngFor="let option of categoryOriginalScreenplay">{{ option }}</option>
       </select>
     </div>
     <div>
       <label for="adaptedScreenplay">Best Adapted Screenplay</label>
-      <select id="adaptedScreenplay" ngModel name="adaptedScreenplay">
+      <select id="adaptedScreenplay" ngModel name="adaptedScreenplay" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].adaptedScreenplay">
         <option *ngFor="let option of categoryAdaptedScreenplay">{{ option }}</option>
       </select>
     </div>
     <div>
       <label for="animatedFeature">Best Animated Feature</label>
-      <select id="animatedFeature" ngModel name="animatedFeature">
+      <select id="animatedFeature" ngModel name="animatedFeature" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].animatedFeature">
         <option *ngFor="let option of categoryAnimatedFeature">{{ option }}</option>
       </select>
     </div>
     <div>
       <label for="visualEffects">Best Visual Effects</label>
-      <select id="visualEffects" ngModel name="visualEffects">
+      <select id="visualEffects" ngModel name="visualEffects" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].visualEffects">
         <option *ngFor="let option of categoryVisualEffects">{{ option }}</option>
       </select>
     </div>
     <div>
       <label for="costumeDesign">Best Costume Design</label>
-      <select id="costumeDesign" ngModel name="costumeDesign">
+      <select id="costumeDesign" ngModel name="costumeDesign" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].costumeDesign">
         <option *ngFor="let option of categoryCostumeDesign">{{ option }}</option>
       </select>
     </div>
     <div>
       <label for="makeupAndHairstyling">Best Makeup and Hairstyling</label>
-      <select id="makeupAndHairstyling" ngModel name="makeupAndHairstyling">
+      <select id="makeupAndHairstyling" ngModel name="makeupAndHairstyling" [(ngModel)]="loadedPostsWinners[0] && loadedPostsWinners[0].makeupAndHairstyling">
         <option *ngFor="let option of categoryMakeupAndHairstyling">{{ option }}</option>
       </select>
     </div>
