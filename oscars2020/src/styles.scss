@@ -33,27 +33,38 @@ img {
   font-style: normal;
 
 }
+
+@font-face {
+  font-family: 'futuramedium';
+  src: url('/assets/fonts/futura_medium_bt-webfont.woff2') format('woff2'),
+       url('/assets/fonts/futura_medium_bt-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
 // end fonts
 
 body {
   background: url(/assets/images/oscar-bg-01.jpg) no-repeat center;
   background-size: cover;
-  height: 100vh;
+  font-family: 'futuralight';
+  min-height: 100vh;
 }
 
 .wrapper {
   align-items: center;
   background: rgba(0, 0, 0, .65);
   display: flex;
-  height: 100%;
+  flex-direction: column;
+  min-height: 100vh;
   justify-content: center;
 }
 
 header {
+  margin-top: 20px;
 
   h1 {
     color: #fff;
-    font-family: 'futuralight';
     font-size: 1.15em;
     text-align: center;
 
@@ -65,5 +76,65 @@ header {
       margin: 0 auto;
       width: 166px;
     }
+  }
+}
+
+.fetching-data {
+  align-items: center;
+  background: #fff;
+  color: #b7a064;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100vw;
+
+  img {
+    display: block;
+    margin-bottom: 10px;
+    width: 130px;
+  }
+}
+
+button {
+  background: #b6a165;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'futuramedium';
+  font-size: 14px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+form {
+  background: rgba(255, 255, 255, .75);
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  
+  div {
+    padding: 15px 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px dotted gray;
+    }
+  }
+
+  label {
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  select {
+    background: #fff;
+    display: block;
+    font-size: 16px;
+    width: 100%;
   }
 }

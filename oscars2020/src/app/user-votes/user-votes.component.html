@@ -2,21 +2,22 @@
 
 <div *ngIf="!deadlineExpired">
 
-  <div>
+  <div class="welcome-msg">
     <h2>Welcome, {{ screenName }}!</h2>
   </div>
   
-  <div *ngIf="isFetching">Fetching data...</div>
+  <div class="fetching-data" *ngIf="isFetching">
+    <img src="/assets/images/oscar-silhouette.png" alt="Fecthing data...">
+    <span>Fetching data...</span>
+  </div>
 
-  <p *ngIf="loadedPosts.length < 1 && !isFetching">Get your votes in below!</p>
+  <p class="welcome-msg" *ngIf="loadedPosts.length < 1 && !isFetching">Get your votes in below!</p>
 
-  <p *ngIf="loadedPosts.length >= 1 && !isFetching">
-    Your votes are below!
-    <br>
-    Come back and change them any time before Sunday Feb 9th 20:00 🇺🇸 / Monday Feb 10th 01:00 🇬🇧 / 02:00 🇳🇴
-    <br><br>
-    <button routerLink="/results">Click here to view the results!</button>
-  </p>
+  <div class="welcome-msg" *ngIf="loadedPosts.length >= 1 && !isFetching">
+    <p>Your votes are below!</p>
+    <p>Come back and change them any time before Sunday Feb 9th 20:00 🇺🇸 / Monday Feb 10th 01:00 🇬🇧 / 02:00 🇳🇴</p>
+    <p><button routerLink="/results">View the results here!</button></p>
+  </div>
 
   <form (ngSubmit)="onSubmit(fsubmit)" #fsubmit="ngForm" *ngIf="!isFetching">
     <fieldset>
