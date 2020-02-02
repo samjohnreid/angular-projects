@@ -12,16 +12,21 @@
   display: flex;
   overflow-x: scroll;
   margin-top: 30px;
+  scroll-snap-type: x mandatory;
   width: 100vw;
+
+  @media (min-width: 1840px) {
+    justify-content: center;
+  }
 }
 
 .results-card {
   background: rgba(255, 255, 255, .75);
   border-radius: 20px;
   flex: none;
-  outline: 2px dotted black;
   margin-right: 20px;
   padding: 20px;
+  scroll-snap-align: center;
   width: 290px;
 
   &:last-child {
