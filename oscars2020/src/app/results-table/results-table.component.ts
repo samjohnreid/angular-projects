@@ -16,6 +16,7 @@ export class ResultsTableComponent implements OnInit {
   loadedPostsDave = [];
   loadedPostsDom = [];
   loadedPostsSam = [];
+  loadedPostsWinners = [];
 
   isFetching = false;
   
@@ -45,6 +46,7 @@ export class ResultsTableComponent implements OnInit {
         this.loadedPostsDave = posts.filter(votesByUser => votesByUser.id === 'dave');
         this.loadedPostsDom = posts.filter(votesByUser => votesByUser.id === 'dom');
         this.loadedPostsSam = posts.filter(votesByUser => votesByUser.id === 'sam');
+        this.loadedPostsWinners = posts.filter(votesByUser => votesByUser.id === 'winners');
     });
   }
 

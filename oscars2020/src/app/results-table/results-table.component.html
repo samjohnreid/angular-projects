@@ -2,8 +2,25 @@
 
 <p *ngIf="loadedPosts.length < 1 && !isFetching">No votes have been submitted yet! Please come back later...</p>
 
-<div *ngIf="loadedPostsBianca.length >= 1 && !isFetching">
+<div *ngIf="loadedPostsWinners.length >= 1 && !isFetching">
+  <ul *ngFor="let winner of loadedPostsWinners">
+    <li *ngIf="loadedPostsWinners[0].picture">Best Picture: {{ winner.picture }}</li>
+    <li *ngIf="loadedPostsWinners[0].director">Best Director: {{ winner.director }}</li>
+    <li *ngIf="loadedPostsWinners[0].actor">Best Actor: {{ winner.actor }}</li>
+    <li *ngIf="loadedPostsWinners[0].actress">Best Actress: {{ winner.actress }}</li>
+    <li *ngIf="loadedPostsWinners[0].supportingActor">Best Supporting Actor: {{ winner.supportingActor }}</li>
+    <li *ngIf="loadedPostsWinners[0].supportingActress">Best Supporting Actress: {{ winner.supportingActress }}</li>
+    <li *ngIf="loadedPostsWinners[0].originalScreenplay">Best Original Screenplay: {{ winner.originalScreenplay }}</li>
+    <li *ngIf="loadedPostsWinners[0].adaptedScreenplay">Best Adapted Screenplay: {{ winner.adaptedScreenplay }}</li>
+    <li *ngIf="loadedPostsWinners[0].animatedFeature">Best Animated Feature: {{ winner.animatedFeature }}</li>
+    <li *ngIf="loadedPostsWinners[0].visualEffects">Best Visual Effects: {{ winner.visualEffects }}</li>
+    <li *ngIf="loadedPostsWinners[0].costumeDesign">Best Costume Design: {{ winner.costumeDesign }}</li>
+    <li *ngIf="loadedPostsWinners[0].makeupAndHairstyling">Best Makeup and Hairstyling: {{ winner.makeupAndHairstyling }}</li>
+  </ul>
   <hr>
+</div>
+
+<div *ngIf="loadedPostsBianca.length >= 1 && !isFetching">
   <div *ngFor="let el of loadedPostsBianca">
     {{ el.id }}
     <br>
