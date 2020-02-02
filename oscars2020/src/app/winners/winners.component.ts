@@ -200,7 +200,7 @@ export class WinnersComponent implements OnInit {
     this.checkVoteAndUpdateWin(pictureValue, 'picture', 'Dom');
     this.checkVoteAndUpdateWin(pictureValue, 'picture', 'Sam');
 
-    const directorValue = form.value.picture;
+    const directorValue = form.value.director;
     this.checkVoteAndUpdateWin(directorValue, 'director', 'Bianca');
     this.checkVoteAndUpdateWin(directorValue, 'director', 'Dave');
     this.checkVoteAndUpdateWin(directorValue, 'director', 'Dom');
@@ -270,48 +270,58 @@ export class WinnersComponent implements OnInit {
   }
 
   checkVoteAndUpdateWin(winner, category, user) {
-    const userVote = eval(`this.loadedPosts${user}[0].${category}`);
-    user = user.toLowerCase();
-    if (userVote === winner) {
-      eval(`this.userResults.${user}.results.${category} = 'win'`);
-    } else {
-      eval(`this.userResults.${user}.results.${category} = 'lose'`);
+    if (eval(`this.loadedPosts${user}.length >= 1`)) {
+      const userVote = eval(`this.loadedPosts${user}[0].${category}`);
+      user = user.toLowerCase();
+      if (winner && userVote === winner) {
+        eval(`this.userResults.${user}.results.${category} = 'win'`);
+      } else if (winner && userVote !== winner) {
+        eval(`this.userResults.${user}.results.${category} = 'lose'`);
+      }
+      return this.userResults;
     }
-    return this.userResults;
   }
 
   pushWinnerData() {
-    this.postData = this.userResults.bianca.results;
-    this.http.put(
-      'https://ng-test-54e77.firebaseio.com/votes/bianca/results.json',
-      this.postData
-    ).subscribe(responseData => {
-      console.log(responseData);
-    });
+    if (this.loadedPostsBianca.length >= 1) {
+      this.postData = this.userResults.bianca.results;
+      this.http.put(
+        'https://ng-test-54e77.firebaseio.com/votes/bianca/results.json',
+        this.postData
+      ).subscribe(responseData => {
+        console.log(responseData);
+      });
+    }
 
-    this.postData = this.userResults.dave.results;
-    this.http.put(
-      'https://ng-test-54e77.firebaseio.com/votes/dave/results.json',
-      this.postData
-    ).subscribe(responseData => {
-      console.log(responseData);
-    });
+    if (this.loadedPostsDave.length >= 1) {
+      this.postData = this.userResults.dave.results;
+      this.http.put(
+        'https://ng-test-54e77.firebaseio.com/votes/dave/results.json',
+        this.postData
+      ).subscribe(responseData => {
+        console.log(responseData);
+      });
+    }
 
-    this.postData = this.userResults.dom.results;
-    this.http.put(
-      'https://ng-test-54e77.firebaseio.com/votes/dom/results.json',
-      this.postData
-    ).subscribe(responseData => {
-      console.log(responseData);
-    });
+    if (this.loadedPostsDom.length >= 1) {
+      this.postData = this.userResults.dom.results;
+      this.http.put(
+        'https://ng-test-54e77.firebaseio.com/votes/dom/results.json',
+        this.postData
+      ).subscribe(responseData => {
+        console.log(responseData);
+      });
+    }
 
-    this.postData = this.userResults.sam.results;
-    this.http.put(
-      'https://ng-test-54e77.firebaseio.com/votes/sam/results.json',
-      this.postData
-    ).subscribe(responseData => {
-      console.log(responseData);
-    });
+    if (this.loadedPostsSam.length >= 1) {
+      this.postData = this.userResults.sam.results;
+      this.http.put(
+        'https://ng-test-54e77.firebaseio.com/votes/sam/results.json',
+        this.postData
+      ).subscribe(responseData => {
+        console.log(responseData);
+      });
+    }
   }
 
   private fetchPosts() {
