@@ -33,7 +33,21 @@ export class UserVotesComponent implements OnInit {
       animatedFeature: "",
       visualEffects: "",
       costumeDesign: "",
-      makeupAndHairstyling: ""
+      makeupAndHairstyling: "",
+      results: {
+        picture: "",
+        director: "",
+        actor: "",
+        actress: "",
+        supportingActor: "",
+        supportingActress: "",
+        originalScreenplay: "",
+        adaptedScreenplay: "",
+        animatedFeature: "",
+        visualEffects: "",
+        costumeDesign: "",
+        makeupAndHairstyling: "",
+      }
     },
     dave: {
       user: "",
@@ -48,7 +62,21 @@ export class UserVotesComponent implements OnInit {
       animatedFeature: "",
       visualEffects: "",
       costumeDesign: "",
-      makeupAndHairstyling: ""
+      makeupAndHairstyling: "",
+      results: {
+        picture: "",
+        director: "",
+        actor: "",
+        actress: "",
+        supportingActor: "",
+        supportingActress: "",
+        originalScreenplay: "",
+        adaptedScreenplay: "",
+        animatedFeature: "",
+        visualEffects: "",
+        costumeDesign: "",
+        makeupAndHairstyling: "",
+      }
     },
     dom: {
       user: "",
@@ -63,7 +91,21 @@ export class UserVotesComponent implements OnInit {
       animatedFeature: "",
       visualEffects: "",
       costumeDesign: "",
-      makeupAndHairstyling: ""
+      makeupAndHairstyling: "",
+      results: {
+        picture: "",
+        director: "",
+        actor: "",
+        actress: "",
+        supportingActor: "",
+        supportingActress: "",
+        originalScreenplay: "",
+        adaptedScreenplay: "",
+        animatedFeature: "",
+        visualEffects: "",
+        costumeDesign: "",
+        makeupAndHairstyling: "",
+      }
     },
     sam: {
       user: "",
@@ -78,7 +120,21 @@ export class UserVotesComponent implements OnInit {
       animatedFeature: "",
       visualEffects: "",
       costumeDesign: "",
-      makeupAndHairstyling: ""
+      makeupAndHairstyling: "",
+      results: {
+        picture: "",
+        director: "",
+        actor: "",
+        actress: "",
+        supportingActor: "",
+        supportingActress: "",
+        originalScreenplay: "",
+        adaptedScreenplay: "",
+        animatedFeature: "",
+        visualEffects: "",
+        costumeDesign: "",
+        makeupAndHairstyling: "",
+      }
     }
   };
 
