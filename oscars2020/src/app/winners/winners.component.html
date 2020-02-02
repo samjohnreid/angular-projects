@@ -1,1 +1,82 @@
-<p>winners works! this is the component i'll use to add the winners as they're announced.</p>
+<div *ngIf="isFetching">Fetching data...</div>
+
+<form (ngSubmit)="onSubmit(fsubmit)" #fsubmit="ngForm" *ngIf="!isFetching">
+  <fieldset>
+    <legend>Select Winners:</legend>
+    <div>
+      <label for="picture">Best Picture</label>
+      <select id="picture" ngModel name="picture">
+        <option *ngFor="let option of categoryPicture">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="director">Best Director</label>
+      <select id="director" ngModel name="director">
+        <option *ngFor="let option of categoryDirector">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="actor">Best Actor</label>
+      <select id="actor" ngModel name="actor">
+        <option *ngFor="let option of categoryActor">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="actress">Best Actress</label>
+      <select id="actress" ngModel name="actress">
+        <option *ngFor="let option of categoryActress">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="supportingActor">Best Supporting Actor</label>
+      <select id="supportingActor" ngModel name="supportingActor">
+        <option *ngFor="let option of categorySupportingActor">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="supportingActress">Best Supporting Actress</label>
+      <select id="supportingActress" ngModel name="supportingActress">
+        <option *ngFor="let option of categorySupportingActress">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="originalScreenplay">Best Original Screenplay</label>
+      <select id="originalScreenplay" ngModel name="originalScreenplay">
+        <option *ngFor="let option of categoryOriginalScreenplay">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="adaptedScreenplay">Best Adapted Screenplay</label>
+      <select id="adaptedScreenplay" ngModel name="adaptedScreenplay">
+        <option *ngFor="let option of categoryAdaptedScreenplay">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="animatedFeature">Best Animated Feature</label>
+      <select id="animatedFeature" ngModel name="animatedFeature">
+        <option *ngFor="let option of categoryAnimatedFeature">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="visualEffects">Best Visual Effects</label>
+      <select id="visualEffects" ngModel name="visualEffects">
+        <option *ngFor="let option of categoryVisualEffects">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="costumeDesign">Best Costume Design</label>
+      <select id="costumeDesign" ngModel name="costumeDesign">
+        <option *ngFor="let option of categoryCostumeDesign">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="makeupAndHairstyling">Best Makeup and Hairstyling</label>
+      <select id="makeupAndHairstyling" ngModel name="makeupAndHairstyling">
+        <option *ngFor="let option of categoryMakeupAndHairstyling">{{ option }}</option>
+      </select>
+    </div>
+  </fieldset>
+  <div>
+    <button type="submit">Submit Winner!</button>
+  </div>
+</form>
