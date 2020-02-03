@@ -13,9 +13,11 @@ export class ResultsTableComponent implements OnInit {
 
   loadedPosts = [];
   loadedPostsBianca = [];
+  loadedPostsBrett = [];
   loadedPostsDave = [];
   loadedPostsDom = [];
   loadedPostsSam = [];
+  loadedPostsSissel = [];
   loadedPostsWinners = [];
 
   isFetching = false;
@@ -43,9 +45,11 @@ export class ResultsTableComponent implements OnInit {
         this.isFetching = false;
         this.loadedPosts = posts;
         this.loadedPostsBianca = posts.filter(votesByUser => votesByUser.id === 'bianca');
+        this.loadedPostsBrett = posts.filter(votesByUser => votesByUser.id === 'brett');
         this.loadedPostsDave = posts.filter(votesByUser => votesByUser.id === 'dave');
         this.loadedPostsDom = posts.filter(votesByUser => votesByUser.id === 'dom');
         this.loadedPostsSam = posts.filter(votesByUser => votesByUser.id === 'sam');
+        this.loadedPostsSissel = posts.filter(votesByUser => votesByUser.id === 'sissel');
         this.loadedPostsWinners = posts.filter(votesByUser => votesByUser.id === 'winners');
     });
   }

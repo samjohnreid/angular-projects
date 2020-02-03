@@ -120,6 +120,122 @@
     </div>
   </div>
 
+  <div *ngIf="loadedPostsBrett.length >= 1 && !isFetching" class="results-card">
+    <div *ngFor="let el of loadedPostsBrett">
+      <div class="results-card__name">{{ el.id }}</div>
+      <ul>
+        <li class="results-card__item">
+          <span *ngIf="el.results.picture == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.picture == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.picture != 'win' && el.results.picture != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Picture</p>
+            <p>{{ el.picture }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.director == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.director == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.director != 'win' && el.results.director != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Director</p>
+            <p>{{ el.director }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.actor == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.actor == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.actor != 'win' && el.results.actor != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Actor</p>
+            <p>{{ el.actor }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.actress == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.actress == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.actress != 'win' && el.results.actress != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Actress</p>
+            <p>{{ el.actress }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.supportingActor == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.supportingActor == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.supportingActor != 'win' && el.results.supportingActor != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Supporting Actor</p>
+            <p>{{ el.supportingActor }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.supportingActress == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.supportingActress == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.supportingActress != 'win' && el.results.supportingActress != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Supporting Actress</p>
+            <p>{{ el.supportingActress }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.originalScreenplay == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.originalScreenplay == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.originalScreenplay != 'win' && el.results.originalScreenplay != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Original Screenplay</p>
+            <p>{{ el.originalScreenplay }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.adaptedScreenplay == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.adaptedScreenplay == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.adaptedScreenplay != 'win' && el.results.adaptedScreenplay != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Adapted Screenplay</p>
+            <p>{{ el.adaptedScreenplay }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.animatedFeature == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.animatedFeature == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.animatedFeature != 'win' && el.results.animatedFeature != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Animated Feature</p>
+            <p>{{ el.animatedFeature }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.visualEffects == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.visualEffects == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.visualEffects != 'win' && el.results.visualEffects != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Visual Effects</p>
+            <p>{{ el.visualEffects }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.costumeDesign == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.costumeDesign == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.costumeDesign != 'win' && el.results.costumeDesign != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Costume Design</p>
+            <p>{{ el.costumeDesign }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.makeupAndHairstyling == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.makeupAndHairstyling == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.makeupAndHairstyling != 'win' && el.results.makeupAndHairstyling != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Makeup and Hairstyling</p>
+            <p>{{ el.makeupAndHairstyling }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <div *ngIf="loadedPostsDave.length >= 1 && !isFetching" class="results-card">
     <div *ngFor="let el of loadedPostsDave">
       <div class="results-card__name">{{ el.id }}</div>
@@ -354,6 +470,122 @@
 
   <div *ngIf="loadedPostsSam.length >= 1 && !isFetching" class="results-card">
     <div *ngFor="let el of loadedPostsSam">
+      <div class="results-card__name">{{ el.id }}</div>
+      <ul>
+        <li class="results-card__item">
+          <span *ngIf="el.results.picture == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.picture == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.picture != 'win' && el.results.picture != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Picture</p>
+            <p>{{ el.picture }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.director == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.director == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.director != 'win' && el.results.director != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Director</p>
+            <p>{{ el.director }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.actor == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.actor == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.actor != 'win' && el.results.actor != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Actor</p>
+            <p>{{ el.actor }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.actress == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.actress == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.actress != 'win' && el.results.actress != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Actress</p>
+            <p>{{ el.actress }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.supportingActor == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.supportingActor == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.supportingActor != 'win' && el.results.supportingActor != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Supporting Actor</p>
+            <p>{{ el.supportingActor }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.supportingActress == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.supportingActress == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.supportingActress != 'win' && el.results.supportingActress != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Supporting Actress</p>
+            <p>{{ el.supportingActress }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.originalScreenplay == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.originalScreenplay == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.originalScreenplay != 'win' && el.results.originalScreenplay != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Original Screenplay</p>
+            <p>{{ el.originalScreenplay }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.adaptedScreenplay == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.adaptedScreenplay == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.adaptedScreenplay != 'win' && el.results.adaptedScreenplay != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Adapted Screenplay</p>
+            <p>{{ el.adaptedScreenplay }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.animatedFeature == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.animatedFeature == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.animatedFeature != 'win' && el.results.animatedFeature != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Animated Feature</p>
+            <p>{{ el.animatedFeature }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.visualEffects == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.visualEffects == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.visualEffects != 'win' && el.results.visualEffects != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Visual Effects</p>
+            <p>{{ el.visualEffects }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.costumeDesign == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.costumeDesign == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.costumeDesign != 'win' && el.results.costumeDesign != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Costume Design</p>
+            <p>{{ el.costumeDesign }}</p>
+          </div>
+        </li>
+        <li class="results-card__item">
+          <span *ngIf="el.results.makeupAndHairstyling == 'win'" class="results-card__verdict">✅</span>
+          <span *ngIf="el.results.makeupAndHairstyling == 'lose'" class="results-card__verdict">❌</span>
+          <span *ngIf="el.results.makeupAndHairstyling != 'win' && el.results.makeupAndHairstyling != 'lose'" class="results-card__verdict"><em>✅</em></span>
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Makeup and Hairstyling</p>
+            <p>{{ el.makeupAndHairstyling }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div *ngIf="loadedPostsSissel.length >= 1 && !isFetching" class="results-card">
+    <div *ngFor="let el of loadedPostsSissel">
       <div class="results-card__name">{{ el.id }}</div>
       <ul>
         <li class="results-card__item">

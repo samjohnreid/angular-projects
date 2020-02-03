@@ -49,6 +49,35 @@ export class UserVotesComponent implements OnInit {
         makeupAndHairstyling: "",
       }
     },
+    brett: {
+      user: "",
+      picture: "",
+      director: "",
+      actor: "",
+      actress: "",
+      supportingActor: "",
+      supportingActress: "",
+      originalScreenplay: "",
+      adaptedScreenplay: "",
+      animatedFeature: "",
+      visualEffects: "",
+      costumeDesign: "",
+      makeupAndHairstyling: "",
+      results: {
+        picture: "",
+        director: "",
+        actor: "",
+        actress: "",
+        supportingActor: "",
+        supportingActress: "",
+        originalScreenplay: "",
+        adaptedScreenplay: "",
+        animatedFeature: "",
+        visualEffects: "",
+        costumeDesign: "",
+        makeupAndHairstyling: "",
+      }
+    },
     dave: {
       user: "",
       picture: "",
@@ -135,7 +164,36 @@ export class UserVotesComponent implements OnInit {
         costumeDesign: "",
         makeupAndHairstyling: "",
       }
-    }
+    },
+    sissel: {
+      user: "",
+      picture: "",
+      director: "",
+      actor: "",
+      actress: "",
+      supportingActor: "",
+      supportingActress: "",
+      originalScreenplay: "",
+      adaptedScreenplay: "",
+      animatedFeature: "",
+      visualEffects: "",
+      costumeDesign: "",
+      makeupAndHairstyling: "",
+      results: {
+        picture: "",
+        director: "",
+        actor: "",
+        actress: "",
+        supportingActor: "",
+        supportingActress: "",
+        originalScreenplay: "",
+        adaptedScreenplay: "",
+        animatedFeature: "",
+        visualEffects: "",
+        costumeDesign: "",
+        makeupAndHairstyling: "",
+      }
+    },
   };
 
   categoryPicture = [
@@ -260,6 +318,9 @@ export class UserVotesComponent implements OnInit {
       case 'bianca':
         this.screenName = 'Bianca';
         return this.userVotes.bianca;
+      case 'brett':
+        this.screenName = 'Brett';
+        return this.userVotes.brett;
       case 'dave':
         this.screenName = 'Dave';
         return this.userVotes.dave;
@@ -269,6 +330,9 @@ export class UserVotesComponent implements OnInit {
       case 'sam':
         this.screenName = 'Sam';
         return this.userVotes.sam;
+      case 'sissel':
+        this.screenName = 'Sissel';
+        return this.userVotes.sissel;
     }
   }
 

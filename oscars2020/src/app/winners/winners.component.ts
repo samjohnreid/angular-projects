@@ -27,6 +27,22 @@ export class WinnersComponent implements OnInit {
         makeupAndHairstyling: "",
       }
     },
+    brett: {
+      results: {
+        picture: "",
+        director: "",
+        actor: "",
+        actress: "",
+        supportingActor: "",
+        supportingActress: "",
+        originalScreenplay: "",
+        adaptedScreenplay: "",
+        animatedFeature: "",
+        visualEffects: "",
+        costumeDesign: "",
+        makeupAndHairstyling: "",
+      }
+    },
     dave: {
       results: {
         picture: "",
@@ -74,7 +90,23 @@ export class WinnersComponent implements OnInit {
         costumeDesign: "",
         makeupAndHairstyling: "",
       }
-    }
+    },
+    sissel: {
+      results: {
+        picture: "",
+        director: "",
+        actor: "",
+        actress: "",
+        supportingActor: "",
+        supportingActress: "",
+        originalScreenplay: "",
+        adaptedScreenplay: "",
+        animatedFeature: "",
+        visualEffects: "",
+        costumeDesign: "",
+        makeupAndHairstyling: "",
+      }
+    },
   };
   
   categoryPicture = [
@@ -196,9 +228,11 @@ export class WinnersComponent implements OnInit {
 
   loadedPosts = [];
   loadedPostsBianca = [];
+  loadedPostsBrett = [];
   loadedPostsDave = [];
   loadedPostsDom = [];
   loadedPostsSam = [];
+  loadedPostsSissel = [];
   loadedPostsWinners = [];
 
   isFetching = false;
@@ -212,75 +246,99 @@ export class WinnersComponent implements OnInit {
   onSubmit(form: NgForm) {
     const pictureValue = form.value.picture;
     this.checkVoteAndUpdateWin(pictureValue, 'picture', 'Bianca');
+    this.checkVoteAndUpdateWin(pictureValue, 'picture', 'Brett');
     this.checkVoteAndUpdateWin(pictureValue, 'picture', 'Dave');
     this.checkVoteAndUpdateWin(pictureValue, 'picture', 'Dom');
     this.checkVoteAndUpdateWin(pictureValue, 'picture', 'Sam');
+    this.checkVoteAndUpdateWin(pictureValue, 'picture', 'Sissel');
 
     const directorValue = form.value.director;
     this.checkVoteAndUpdateWin(directorValue, 'director', 'Bianca');
+    this.checkVoteAndUpdateWin(directorValue, 'director', 'Brett');
     this.checkVoteAndUpdateWin(directorValue, 'director', 'Dave');
     this.checkVoteAndUpdateWin(directorValue, 'director', 'Dom');
     this.checkVoteAndUpdateWin(directorValue, 'director', 'Sam');
+    this.checkVoteAndUpdateWin(directorValue, 'director', 'Sissel');
 
     const actorValue = form.value.actor;
     this.checkVoteAndUpdateWin(actorValue, 'actor', 'Bianca');
+    this.checkVoteAndUpdateWin(actorValue, 'actor', 'Brett');
     this.checkVoteAndUpdateWin(actorValue, 'actor', 'Dave');
     this.checkVoteAndUpdateWin(actorValue, 'actor', 'Dom');
     this.checkVoteAndUpdateWin(actorValue, 'actor', 'Sam');
+    this.checkVoteAndUpdateWin(actorValue, 'actor', 'Sissel');
     
     const actressValue = form.value.actress;
     this.checkVoteAndUpdateWin(actressValue, 'actress', 'Bianca');
+    this.checkVoteAndUpdateWin(actressValue, 'actress', 'Brett');
     this.checkVoteAndUpdateWin(actressValue, 'actress', 'Dave');
     this.checkVoteAndUpdateWin(actressValue, 'actress', 'Dom');
     this.checkVoteAndUpdateWin(actressValue, 'actress', 'Sam');
+    this.checkVoteAndUpdateWin(actressValue, 'actress', 'Sissel');
 
     const supportingActorValue = form.value.supportingActor;
     this.checkVoteAndUpdateWin(supportingActorValue, 'supportingActor', 'Bianca');
+    this.checkVoteAndUpdateWin(supportingActorValue, 'supportingActor', 'Brett');
     this.checkVoteAndUpdateWin(supportingActorValue, 'supportingActor', 'Dave');
     this.checkVoteAndUpdateWin(supportingActorValue, 'supportingActor', 'Dom');
     this.checkVoteAndUpdateWin(supportingActorValue, 'supportingActor', 'Sam');
+    this.checkVoteAndUpdateWin(supportingActorValue, 'supportingActor', 'Sissel');
 
     const supportingActressValue = form.value.supportingActress;
     this.checkVoteAndUpdateWin(supportingActressValue, 'supportingActress', 'Bianca');
+    this.checkVoteAndUpdateWin(supportingActressValue, 'supportingActress', 'Brett');
     this.checkVoteAndUpdateWin(supportingActressValue, 'supportingActress', 'Dave');
     this.checkVoteAndUpdateWin(supportingActressValue, 'supportingActress', 'Dom');
     this.checkVoteAndUpdateWin(supportingActressValue, 'supportingActress', 'Sam');
+    this.checkVoteAndUpdateWin(supportingActressValue, 'supportingActress', 'Sissel');
 
     const originalScreenplayValue = form.value.originalScreenplay;
     this.checkVoteAndUpdateWin(originalScreenplayValue, 'originalScreenplay', 'Bianca');
+    this.checkVoteAndUpdateWin(originalScreenplayValue, 'originalScreenplay', 'Brett');
     this.checkVoteAndUpdateWin(originalScreenplayValue, 'originalScreenplay', 'Dave');
     this.checkVoteAndUpdateWin(originalScreenplayValue, 'originalScreenplay', 'Dom');
     this.checkVoteAndUpdateWin(originalScreenplayValue, 'originalScreenplay', 'Sam');
+    this.checkVoteAndUpdateWin(originalScreenplayValue, 'originalScreenplay', 'Sissel');
 
     const adaptedScreenplayValue = form.value.adaptedScreenplay;
     this.checkVoteAndUpdateWin(adaptedScreenplayValue, 'adaptedScreenplay', 'Bianca');
+    this.checkVoteAndUpdateWin(adaptedScreenplayValue, 'adaptedScreenplay', 'Brett');
     this.checkVoteAndUpdateWin(adaptedScreenplayValue, 'adaptedScreenplay', 'Dave');
     this.checkVoteAndUpdateWin(adaptedScreenplayValue, 'adaptedScreenplay', 'Dom');
     this.checkVoteAndUpdateWin(adaptedScreenplayValue, 'adaptedScreenplay', 'Sam');
+    this.checkVoteAndUpdateWin(adaptedScreenplayValue, 'adaptedScreenplay', 'Sissel');
 
     const animatedFeatureValue = form.value.animatedFeature;
     this.checkVoteAndUpdateWin(animatedFeatureValue, 'animatedFeature', 'Bianca');
+    this.checkVoteAndUpdateWin(animatedFeatureValue, 'animatedFeature', 'Brett');
     this.checkVoteAndUpdateWin(animatedFeatureValue, 'animatedFeature', 'Dave');
     this.checkVoteAndUpdateWin(animatedFeatureValue, 'animatedFeature', 'Dom');
     this.checkVoteAndUpdateWin(animatedFeatureValue, 'animatedFeature', 'Sam');
+    this.checkVoteAndUpdateWin(animatedFeatureValue, 'animatedFeature', 'Sissel');
 
     const visualEffectsValue = form.value.visualEffects;
     this.checkVoteAndUpdateWin(visualEffectsValue, 'visualEffects', 'Bianca');
+    this.checkVoteAndUpdateWin(visualEffectsValue, 'visualEffects', 'Brett');
     this.checkVoteAndUpdateWin(visualEffectsValue, 'visualEffects', 'Dave');
     this.checkVoteAndUpdateWin(visualEffectsValue, 'visualEffects', 'Dom');
     this.checkVoteAndUpdateWin(visualEffectsValue, 'visualEffects', 'Sam');
+    this.checkVoteAndUpdateWin(visualEffectsValue, 'visualEffects', 'Sissel');
 
     const costumeDesignValue = form.value.costumeDesign;
     this.checkVoteAndUpdateWin(costumeDesignValue, 'costumeDesign', 'Bianca');
+    this.checkVoteAndUpdateWin(costumeDesignValue, 'costumeDesign', 'Brett');
     this.checkVoteAndUpdateWin(costumeDesignValue, 'costumeDesign', 'Dave');
     this.checkVoteAndUpdateWin(costumeDesignValue, 'costumeDesign', 'Dom');
     this.checkVoteAndUpdateWin(costumeDesignValue, 'costumeDesign', 'Sam');
+    this.checkVoteAndUpdateWin(costumeDesignValue, 'costumeDesign', 'Sissel');
 
     const makeupAndHairstylingValue = form.value.makeupAndHairstyling;
     this.checkVoteAndUpdateWin(makeupAndHairstylingValue, 'makeupAndHairstyling', 'Bianca');
+    this.checkVoteAndUpdateWin(makeupAndHairstylingValue, 'makeupAndHairstyling', 'Brett');
     this.checkVoteAndUpdateWin(makeupAndHairstylingValue, 'makeupAndHairstyling', 'Dave');
     this.checkVoteAndUpdateWin(makeupAndHairstylingValue, 'makeupAndHairstyling', 'Dom');
     this.checkVoteAndUpdateWin(makeupAndHairstylingValue, 'makeupAndHairstyling', 'Sam');
+    this.checkVoteAndUpdateWin(makeupAndHairstylingValue, 'makeupAndHairstyling', 'Sissel');
 
     this.pushWinnerData();
 
@@ -331,6 +389,16 @@ export class WinnersComponent implements OnInit {
       });
     }
 
+    if (this.loadedPostsBrett.length >= 1) {
+      this.postData = this.userResults.brett.results;
+      this.http.put(
+        'https://ng-test-54e77.firebaseio.com/votes/brett/results.json',
+        this.postData
+      ).subscribe(responseData => {
+        console.log(responseData);
+      });
+    }
+
     if (this.loadedPostsDave.length >= 1) {
       this.postData = this.userResults.dave.results;
       this.http.put(
@@ -360,6 +428,16 @@ export class WinnersComponent implements OnInit {
         console.log(responseData);
       });
     }
+
+    if (this.loadedPostsSissel.length >= 1) {
+      this.postData = this.userResults.sissel.results;
+      this.http.put(
+        'https://ng-test-54e77.firebaseio.com/votes/sissel/results.json',
+        this.postData
+      ).subscribe(responseData => {
+        console.log(responseData);
+      });
+    }
   }
 
   private fetchPosts() {
@@ -379,9 +457,11 @@ export class WinnersComponent implements OnInit {
         this.isFetching = false;
         this.loadedPosts = posts;
         this.loadedPostsBianca = posts.filter(votesByUser => votesByUser.id === 'bianca');
+        this.loadedPostsBrett = posts.filter(votesByUser => votesByUser.id === 'brett');
         this.loadedPostsDave = posts.filter(votesByUser => votesByUser.id === 'dave');
         this.loadedPostsDom = posts.filter(votesByUser => votesByUser.id === 'dom');
         this.loadedPostsSam = posts.filter(votesByUser => votesByUser.id === 'sam');
+        this.loadedPostsSissel = posts.filter(votesByUser => votesByUser.id === 'sissel');
         this.loadedPostsWinners = posts.filter(votesByUser => votesByUser.id === 'winners');
     });
   }
