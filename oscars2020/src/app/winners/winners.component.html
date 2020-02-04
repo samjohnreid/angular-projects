@@ -1,4 +1,7 @@
-<div *ngIf="isFetching">Fetching data...</div>
+<div class="fetching-data" *ngIf="isFetching">
+  <img src="/assets/images/oscar-silhouette.png" alt="Fecthing data...">
+  <span>Fetching data...</span>
+</div>
 
 <form (ngSubmit)="onSubmit(fsubmit)" #fsubmit="ngForm" *ngIf="!isFetching">
   <fieldset>

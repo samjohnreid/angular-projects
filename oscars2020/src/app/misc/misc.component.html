@@ -1,0 +1,19 @@
+<div class="fetching-data" *ngIf="isFetching">
+  <img src="/assets/images/oscar-silhouette.png" alt="Fecthing data...">
+  <span>Fetching data...</span>
+</div>
+
+<form (ngSubmit)="onSubmit(fsubmit)" #fsubmit="ngForm" *ngIf="!isFetching">
+  <fieldset>
+    <legend>Misc Options:</legend>
+    <div>
+      <label for="deadlineExpired">Deadline Expired</label>
+      <select id="deadlineExpired" ngModel name="deadlineExpired" [(ngModel)]="loadedMiscOptionsDeadlineExpired[0] && loadedMiscOptionsDeadlineExpired[0].value">
+        <option *ngFor="let option of deadlineExpiredValues">{{ option }}</option>
+      </select>
+    </div>
+  </fieldset>
+  <div>
+    <button type="submit">Submit Misc Options</button>
+  </div>
+</form>

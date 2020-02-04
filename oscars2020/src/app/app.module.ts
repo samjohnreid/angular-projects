@@ -10,6 +10,7 @@ import { UserVotesComponent } from './user-votes/user-votes.component';
 import { ResultsTableComponent } from './results-table/results-table.component';
 import { VotesTableComponent } from './votes-table/votes-table.component';
 import { WinnersComponent } from './winners/winners.component';
+import { MiscComponent } from './misc/misc.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { WinnersComponent } from './winners/winners.component';
     UserVotesComponent,
     ResultsTableComponent,
     VotesTableComponent,
-    WinnersComponent
+    WinnersComponent,
+    MiscComponent
   ],
   imports: [
     BrowserModule,

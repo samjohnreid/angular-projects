@@ -299,6 +299,8 @@ export class UserVotesComponent implements OnInit {
   postData: any;
 
   loadedPosts = [];
+  loadedMiscOptions = [];
+  loadedMiscOptionsDeadlineExpired = [];
 
   isFetching = false;
 
@@ -310,6 +312,7 @@ export class UserVotesComponent implements OnInit {
     };
 
     this.fetchPosts(this.user.name);
+    this.fetchMiscOptions();
     this.userVotesObject();
   }
 
@@ -381,6 +384,31 @@ export class UserVotesComponent implements OnInit {
       .subscribe(posts => {
         this.isFetching = false;
         this.loadedPosts = posts.filter(votesByUser => votesByUser.user === user);
+    });
+  }
+
+  private fetchMiscOptions() {
+    this.isFetching = true;
+    this.http
+      .get('https://ng-test-54e77.firebaseio.com/misc.json')
+      .pipe(map(responseData => {
+        const postsArray = [];
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            postsArray.push({ ...responseData[key], id: key });
+          }
+        }
+        return postsArray;
+      }))
+      .subscribe(posts => {
+        this.isFetching = false;
+        this.loadedMiscOptions = posts;
+        this.loadedMiscOptionsDeadlineExpired = posts.filter(votesByUser => votesByUser.id === 'deadlineExpired');
+        if (this.loadedMiscOptionsDeadlineExpired[0].value === 'True') {
+          this.deadlineExpired = true;
+        } else {
+          this.deadlineExpired = false;
+        }
     });
   }
 

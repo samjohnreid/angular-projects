@@ -6,13 +6,15 @@ import { UserVotesComponent } from './user-votes/user-votes.component';
 import { ResultsTableComponent } from './results-table/results-table.component';
 import { VotesTableComponent } from './votes-table/votes-table.component';
 import { WinnersComponent } from './winners/winners.component';
+import { MiscComponent } from './misc/misc.component';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent },
   { path: 'cast-votes/:name', component: UserVotesComponent },
   { path: 'results', component: ResultsTableComponent },
   { path: 'votes', component: VotesTableComponent },
-  { path: 'winners', component: WinnersComponent }
+  { path: 'winners', component: WinnersComponent },
+  { path: 'misc', component: MiscComponent }
 ];
 
 @NgModule({
