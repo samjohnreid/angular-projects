@@ -5,6 +5,8 @@
 
 <p *ngIf="loadedPosts.length < 1 && !isFetching" class="welcome-msg">No votes have been submitted yet!<br>Please come back later...</p>
 
+<app-tally></app-tally>
+
 <div class="results-card-wrapper">
 
   <div *ngIf="loadedPostsBianca.length >= 1 && !isFetching" class="results-card">

@@ -1,0 +1,25 @@
+<div *ngIf="!isFetching" class="tally">
+  
+  <ul class="tally__list">
+    <li class="tally__item">
+      <span>Bianca</span>
+      <div class="tally-img-wrap"><img src="assets/images/tally-{{ biancaWins }}.png" alt=""></div>
+    </li>
+    <li class="tally__item">
+      <span>Brett</span>
+      <div class="tally-img-wrap"><img src="assets/images/tally-{{ biancaWins }}.png" alt=""></div>
+    </li>
+    <li class="tally__item">
+      <span>Sissel</span>
+      <div class="tally-img-wrap"><img src="assets/images/tally-{{ biancaWins }}.png" alt=""></div>
+    </li>
+  </ul>
+  
+  <br>
+  {{ brettWins }}<br>
+  {{ daveWins }}<br>
+  {{ domWins }}<br>
+  {{ samWins }}<br>
+  {{ sisselWins }}<br>
+
+</div>

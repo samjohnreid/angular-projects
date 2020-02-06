@@ -11,6 +11,7 @@ import { ResultsTableComponent } from './results-table/results-table.component';
 import { VotesTableComponent } from './votes-table/votes-table.component';
 import { WinnersComponent } from './winners/winners.component';
 import { MiscComponent } from './misc/misc.component';
+import { TallyComponent } from './tally/tally.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MiscComponent } from './misc/misc.component';
     ResultsTableComponent,
     VotesTableComponent,
     WinnersComponent,
-    MiscComponent
+    MiscComponent,
+    TallyComponent
   ],
   imports: [
     BrowserModule,
