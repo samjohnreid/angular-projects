@@ -45,6 +45,8 @@ export class TallyComponent implements OnInit {
         }
       }
       return winTally.length;
+    } else {
+      return 0;
     }
   }
 

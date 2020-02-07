@@ -11,7 +11,7 @@
 .results-card-wrapper {
   display: flex;
   overflow-x: scroll;
-  margin-top: 30px;
+  margin: 30px 0;
   scroll-snap-type: x mandatory;
   width: 100vw;
 
@@ -71,4 +71,8 @@
   &__category {
     font-family: 'futuramedium';
   }
+}
+
+.results-card-wrapper--winners {
+  justify-content: center;
 }

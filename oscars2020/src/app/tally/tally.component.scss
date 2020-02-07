@@ -6,7 +6,7 @@
     background: rgba(255, 255, 255, .75);
     display: flex;
     margin-bottom: 1px;
-    padding: 20px 40px;
+    padding: 15px 40px;
 
     &:last-child {
       margin-bottom: 0;
@@ -14,8 +14,15 @@
 
     span {
       font-family: 'futuramedium';
-      padding-right: 20px;
       text-transform: uppercase;
+      width: 10em;
+    }
+
+    .tally-img-wrap {
+
+      img {
+        display: block;
+      }
     }
   }
 }

@@ -706,3 +706,87 @@
   </div>
 
 </div>
+
+<div class="results-card-wrapper results-card-wrapper--winners" *ngIf="loadedPostsWinners.length >= 1 && !isFetching">
+
+  <div *ngIf="loadedPostsWinners.length >= 1 && !isFetching" class="results-card">
+    <div *ngFor="let el of loadedPostsWinners">
+      <div class="results-card__name">{{ el.id }}</div>
+      <ul>
+        <li class="results-card__item" *ngIf="el.picture">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Picture</p>
+            <p>{{ el.picture }}</p>
+          </div>
+        </li>
+        <li class="results-card__item" *ngIf="el.director">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Director</p>
+            <p>{{ el.director }}</p>
+          </div>
+        </li>
+        <li class="results-card__item" *ngIf="el.actor">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Actor</p>
+            <p>{{ el.actor }}</p>
+          </div>
+        </li>
+        <li class="results-card__item" *ngIf="el.actress">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Actress</p>
+            <p>{{ el.actress }}</p>
+          </div>
+        </li>
+        <li class="results-card__item" *ngIf="el.supportingActor">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Supporting Actor</p>
+            <p>{{ el.supportingActor }}</p>
+          </div>
+        </li>
+        <li class="results-card__item" *ngIf="el.supportingActress">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Supporting Actress</p>
+            <p>{{ el.supportingActress }}</p>
+          </div>
+        </li>
+        <li class="results-card__item" *ngIf="el.originalScreenplay">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Original Screenplay</p>
+            <p>{{ el.originalScreenplay }}</p>
+          </div>
+        </li>
+        <li class="results-card__item" *ngIf="el.adaptedScreenplay">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Adapted Screenplay</p>
+            <p>{{ el.adaptedScreenplay }}</p>
+          </div>
+        </li>
+        <li class="results-card__item" *ngIf="el.animatedFeature">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Animated Feature</p>
+            <p>{{ el.animatedFeature }}</p>
+          </div>
+        </li>
+        <li class="results-card__item" *ngIf="el.visualEffects">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Visual Effects</p>
+            <p>{{ el.visualEffects }}</p>
+          </div>
+        </li>
+        <li class="results-card__item" *ngIf="el.costumeDesign">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Costume Design</p>
+            <p>{{ el.costumeDesign }}</p>
+          </div>
+        </li>
+        <li class="results-card__item" *ngIf="el.makeupAndHairstyling">
+          <div class="results-card__entry">
+            <p class="results-card__category">Best Makeup and Hairstyling</p>
+            <p>{{ el.makeupAndHairstyling }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
